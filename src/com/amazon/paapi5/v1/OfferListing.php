@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * OfferListing Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class OfferListing implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -219,18 +217,18 @@ class OfferListing implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['availability'] = isset($data['availability']) ? $data['availability'] : null;
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['deliveryInfo'] = isset($data['deliveryInfo']) ? $data['deliveryInfo'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['isBuyBoxWinner'] = isset($data['isBuyBoxWinner']) ? $data['isBuyBoxWinner'] : null;
-        $this->container['loyaltyPoints'] = isset($data['loyaltyPoints']) ? $data['loyaltyPoints'] : null;
-        $this->container['merchantInfo'] = isset($data['merchantInfo']) ? $data['merchantInfo'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['programEligibility'] = isset($data['programEligibility']) ? $data['programEligibility'] : null;
-        $this->container['promotions'] = isset($data['promotions']) ? $data['promotions'] : null;
-        $this->container['savingBasis'] = isset($data['savingBasis']) ? $data['savingBasis'] : null;
-        $this->container['violatesMAP'] = isset($data['violatesMAP']) ? $data['violatesMAP'] : null;
+        $this->container['availability'] = $data['availability'] ?? null;
+        $this->container['condition'] = $data['condition'] ?? null;
+        $this->container['deliveryInfo'] = $data['deliveryInfo'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['isBuyBoxWinner'] = $data['isBuyBoxWinner'] ?? null;
+        $this->container['loyaltyPoints'] = $data['loyaltyPoints'] ?? null;
+        $this->container['merchantInfo'] = $data['merchantInfo'] ?? null;
+        $this->container['price'] = $data['price'] ?? null;
+        $this->container['programEligibility'] = $data['programEligibility'] ?? null;
+        $this->container['promotions'] = $data['promotions'] ?? null;
+        $this->container['savingBasis'] = $data['savingBasis'] ?? null;
+        $this->container['violatesMAP'] = $data['violatesMAP'] ?? null;
     }
 
     /**
@@ -551,7 +549,7 @@ class OfferListing implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -563,9 +561,9 @@ class OfferListing implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -576,7 +574,7 @@ class OfferListing implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -592,7 +590,7 @@ class OfferListing implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

@@ -35,6 +35,9 @@ use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
 
+if (!@file_exists(__DIR__ . '/vendor/autoload.php')) {
+    exit;
+}
 require_once(__DIR__ . '/vendor/autoload.php'); // change path as needed
 
 function getVariations()

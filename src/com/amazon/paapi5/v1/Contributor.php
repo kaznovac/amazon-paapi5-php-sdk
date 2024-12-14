@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * Contributor Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class Contributor implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -179,10 +177,10 @@ class Contributor implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['roleType'] = isset($data['roleType']) ? $data['roleType'] : null;
+        $this->container['locale'] = $data['locale'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['role'] = $data['role'] ?? null;
+        $this->container['roleType'] = $data['roleType'] ?? null;
     }
 
     /**
@@ -311,7 +309,7 @@ class Contributor implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -323,9 +321,9 @@ class Contributor implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -336,7 +334,7 @@ class Contributor implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -352,7 +350,7 @@ class Contributor implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

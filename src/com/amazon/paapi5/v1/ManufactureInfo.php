@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * ManufactureInfo Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class ManufactureInfo implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -174,9 +172,9 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['itemPartNumber'] = isset($data['itemPartNumber']) ? $data['itemPartNumber'] : null;
-        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
-        $this->container['warranty'] = isset($data['warranty']) ? $data['warranty'] : null;
+        $this->container['itemPartNumber'] = $data['itemPartNumber'] ?? null;
+        $this->container['model'] = $data['model'] ?? null;
+        $this->container['warranty'] = $data['warranty'] ?? null;
     }
 
     /**
@@ -281,7 +279,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -293,9 +291,9 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -306,7 +304,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -322,7 +320,7 @@ class ManufactureInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

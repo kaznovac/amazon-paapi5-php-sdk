@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * ItemInfo Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class ItemInfo implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -214,17 +212,17 @@ class ItemInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['byLineInfo'] = isset($data['byLineInfo']) ? $data['byLineInfo'] : null;
-        $this->container['classifications'] = isset($data['classifications']) ? $data['classifications'] : null;
-        $this->container['contentInfo'] = isset($data['contentInfo']) ? $data['contentInfo'] : null;
-        $this->container['contentRating'] = isset($data['contentRating']) ? $data['contentRating'] : null;
-        $this->container['externalIds'] = isset($data['externalIds']) ? $data['externalIds'] : null;
-        $this->container['features'] = isset($data['features']) ? $data['features'] : null;
-        $this->container['manufactureInfo'] = isset($data['manufactureInfo']) ? $data['manufactureInfo'] : null;
-        $this->container['productInfo'] = isset($data['productInfo']) ? $data['productInfo'] : null;
-        $this->container['technicalInfo'] = isset($data['technicalInfo']) ? $data['technicalInfo'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['tradeInInfo'] = isset($data['tradeInInfo']) ? $data['tradeInInfo'] : null;
+        $this->container['byLineInfo'] = $data['byLineInfo'] ?? null;
+        $this->container['classifications'] = $data['classifications'] ?? null;
+        $this->container['contentInfo'] = $data['contentInfo'] ?? null;
+        $this->container['contentRating'] = $data['contentRating'] ?? null;
+        $this->container['externalIds'] = $data['externalIds'] ?? null;
+        $this->container['features'] = $data['features'] ?? null;
+        $this->container['manufactureInfo'] = $data['manufactureInfo'] ?? null;
+        $this->container['productInfo'] = $data['productInfo'] ?? null;
+        $this->container['technicalInfo'] = $data['technicalInfo'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
+        $this->container['tradeInInfo'] = $data['tradeInInfo'] ?? null;
     }
 
     /**
@@ -521,7 +519,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -533,9 +531,9 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -546,7 +544,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -562,7 +560,7 @@ class ItemInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

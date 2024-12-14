@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * GetItemsRequest Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class GetItemsRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -219,18 +217,18 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['currencyOfPreference'] = isset($data['currencyOfPreference']) ? $data['currencyOfPreference'] : null;
-        $this->container['itemIds'] = isset($data['itemIds']) ? $data['itemIds'] : null;
-        $this->container['itemIdType'] = isset($data['itemIdType']) ? $data['itemIdType'] : null;
-        $this->container['languagesOfPreference'] = isset($data['languagesOfPreference']) ? $data['languagesOfPreference'] : null;
-        $this->container['marketplace'] = isset($data['marketplace']) ? $data['marketplace'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['offerCount'] = isset($data['offerCount']) ? $data['offerCount'] : null;
-        $this->container['partnerTag'] = isset($data['partnerTag']) ? $data['partnerTag'] : null;
-        $this->container['partnerType'] = isset($data['partnerType']) ? $data['partnerType'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
+        $this->container['condition'] = $data['condition'] ?? null;
+        $this->container['currencyOfPreference'] = $data['currencyOfPreference'] ?? null;
+        $this->container['itemIds'] = $data['itemIds'] ?? null;
+        $this->container['itemIdType'] = $data['itemIdType'] ?? null;
+        $this->container['languagesOfPreference'] = $data['languagesOfPreference'] ?? null;
+        $this->container['marketplace'] = $data['marketplace'] ?? null;
+        $this->container['merchant'] = $data['merchant'] ?? null;
+        $this->container['offerCount'] = $data['offerCount'] ?? null;
+        $this->container['partnerTag'] = $data['partnerTag'] ?? null;
+        $this->container['partnerType'] = $data['partnerType'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
+        $this->container['resources'] = $data['resources'] ?? null;
     }
 
     /**
@@ -269,7 +267,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets condition
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::*
      */
     public function getCondition()
     {
@@ -279,7 +277,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets condition
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition $condition condition
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::* $condition condition
      *
      * @return $this
      */
@@ -341,7 +339,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets itemIdType
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemIdType
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemIdType::*
      */
     public function getItemIdType()
     {
@@ -351,7 +349,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets itemIdType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemIdType $itemIdType itemIdType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ItemIdType::* $itemIdType itemIdType
      *
      * @return $this
      */
@@ -413,7 +411,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets merchant
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::*
      */
     public function getMerchant()
     {
@@ -423,7 +421,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets merchant
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant $merchant merchant
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::* $merchant merchant
      *
      * @return $this
      */
@@ -485,7 +483,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets partnerType
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::*
      */
     public function getPartnerType()
     {
@@ -495,7 +493,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::* $partnerType partnerType
      *
      * @return $this
      */
@@ -533,7 +531,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets resources
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource[]
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource::*[]
      */
     public function getResources()
     {
@@ -543,7 +541,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets resources
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource[] $resources resources
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsResource::*[] $resources resources
      *
      * @return $this
      */
@@ -560,7 +558,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -572,9 +570,9 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -585,7 +583,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -601,7 +599,7 @@ class GetItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

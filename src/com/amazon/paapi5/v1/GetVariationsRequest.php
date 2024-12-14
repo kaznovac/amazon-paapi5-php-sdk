@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * GetVariationsRequest Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class GetVariationsRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -224,19 +222,19 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['currencyOfPreference'] = isset($data['currencyOfPreference']) ? $data['currencyOfPreference'] : null;
-        $this->container['languagesOfPreference'] = isset($data['languagesOfPreference']) ? $data['languagesOfPreference'] : null;
-        $this->container['marketplace'] = isset($data['marketplace']) ? $data['marketplace'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['offerCount'] = isset($data['offerCount']) ? $data['offerCount'] : null;
-        $this->container['partnerTag'] = isset($data['partnerTag']) ? $data['partnerTag'] : null;
-        $this->container['partnerType'] = isset($data['partnerType']) ? $data['partnerType'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['variationCount'] = isset($data['variationCount']) ? $data['variationCount'] : null;
-        $this->container['variationPage'] = isset($data['variationPage']) ? $data['variationPage'] : null;
+        $this->container['aSIN'] = $data['aSIN'] ?? null;
+        $this->container['condition'] = $data['condition'] ?? null;
+        $this->container['currencyOfPreference'] = $data['currencyOfPreference'] ?? null;
+        $this->container['languagesOfPreference'] = $data['languagesOfPreference'] ?? null;
+        $this->container['marketplace'] = $data['marketplace'] ?? null;
+        $this->container['merchant'] = $data['merchant'] ?? null;
+        $this->container['offerCount'] = $data['offerCount'] ?? null;
+        $this->container['partnerTag'] = $data['partnerTag'] ?? null;
+        $this->container['partnerType'] = $data['partnerType'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
+        $this->container['resources'] = $data['resources'] ?? null;
+        $this->container['variationCount'] = $data['variationCount'] ?? null;
+        $this->container['variationPage'] = $data['variationPage'] ?? null;
     }
 
     /**
@@ -299,7 +297,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets condition
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::*
      */
     public function getCondition()
     {
@@ -309,7 +307,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets condition
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition $condition condition
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::* $condition condition
      *
      * @return $this
      */
@@ -395,7 +393,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets merchant
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::*
      */
     public function getMerchant()
     {
@@ -405,7 +403,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets merchant
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant $merchant merchant
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::* $merchant merchant
      *
      * @return $this
      */
@@ -467,7 +465,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets partnerType
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::*
      */
     public function getPartnerType()
     {
@@ -477,7 +475,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::* $partnerType partnerType
      *
      * @return $this
      */
@@ -515,7 +513,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets resources
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource[]
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource::*[]
      */
     public function getResources()
     {
@@ -525,7 +523,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets resources
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource[] $resources resources
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsResource::*[] $resources resources
      *
      * @return $this
      */
@@ -590,7 +588,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -602,9 +600,9 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -615,7 +613,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -631,7 +629,7 @@ class GetVariationsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

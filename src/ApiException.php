@@ -17,7 +17,7 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1;
 
-use \Exception;
+use Exception;
 
 /**
  * ApiException Class Doc Comment
@@ -46,7 +46,7 @@ class ApiException extends Exception
     /**
      * The deserialized response object
      *
-     * @var $responseObject;
+     * @var mixed|null
      */
     protected $responseObject;
 
@@ -86,7 +86,7 @@ class ApiException extends Exception
     }
 
     /**
-     * Sets the deseralized response object (during deserialization)
+     * Sets the deserialized response object (during deserialization)
      *
      * @param mixed $obj Deserialized response object
      *
@@ -98,7 +98,7 @@ class ApiException extends Exception
     }
 
     /**
-     * Gets the deseralized response object (during deserialization)
+     * Gets the deserialized response object (during deserialization)
      *
      * @return mixed the deserialized response object
      */

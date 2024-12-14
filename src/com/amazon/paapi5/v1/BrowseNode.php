@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * BrowseNode Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class BrowseNode implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -194,13 +192,13 @@ class BrowseNode implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ancestor'] = isset($data['ancestor']) ? $data['ancestor'] : null;
-        $this->container['children'] = isset($data['children']) ? $data['children'] : null;
-        $this->container['contextFreeName'] = isset($data['contextFreeName']) ? $data['contextFreeName'] : null;
-        $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['isRoot'] = isset($data['isRoot']) ? $data['isRoot'] : null;
-        $this->container['salesRank'] = isset($data['salesRank']) ? $data['salesRank'] : null;
+        $this->container['ancestor'] = $data['ancestor'] ?? null;
+        $this->container['children'] = $data['children'] ?? null;
+        $this->container['contextFreeName'] = $data['contextFreeName'] ?? null;
+        $this->container['displayName'] = $data['displayName'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['isRoot'] = $data['isRoot'] ?? null;
+        $this->container['salesRank'] = $data['salesRank'] ?? null;
     }
 
     /**
@@ -401,7 +399,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -413,9 +411,9 @@ class BrowseNode implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -426,7 +424,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -442,7 +440,7 @@ class BrowseNode implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

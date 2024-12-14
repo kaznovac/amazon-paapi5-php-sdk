@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * OfferDeliveryInfo Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class OfferDeliveryInfo implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -179,10 +177,10 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['isAmazonFulfilled'] = isset($data['isAmazonFulfilled']) ? $data['isAmazonFulfilled'] : null;
-        $this->container['isFreeShippingEligible'] = isset($data['isFreeShippingEligible']) ? $data['isFreeShippingEligible'] : null;
-        $this->container['isPrimeEligible'] = isset($data['isPrimeEligible']) ? $data['isPrimeEligible'] : null;
-        $this->container['shippingCharges'] = isset($data['shippingCharges']) ? $data['shippingCharges'] : null;
+        $this->container['isAmazonFulfilled'] = $data['isAmazonFulfilled'] ?? null;
+        $this->container['isFreeShippingEligible'] = $data['isFreeShippingEligible'] ?? null;
+        $this->container['isPrimeEligible'] = $data['isPrimeEligible'] ?? null;
+        $this->container['shippingCharges'] = $data['shippingCharges'] ?? null;
     }
 
     /**
@@ -311,7 +309,7 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -323,9 +321,9 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -336,7 +334,7 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -352,7 +350,7 @@ class OfferDeliveryInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

@@ -33,7 +33,7 @@ class ObjectSerializer
      * @param string $type   the SwaggerType of the data
      * @param string $format the format of the Swagger type of the data
      *
-     * @return string|object serialized form of $data
+     * @return string|object|array serialized form of $data
      */
     public static function sanitizeForSerialization($data, $type = null, $format = null)
     {
@@ -208,7 +208,6 @@ class ObjectSerializer
      * @param mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
-     * @param string   $discriminator discriminator if polymorphism is used
      *
      * @return object|array|null an single or an array of $class instances
      */
@@ -238,7 +237,7 @@ class ObjectSerializer
             settype($data, 'array');
             return $data;
         } elseif ($class === '\DateTime') {
-            // Some API's return an invalid, empty string as a
+            // Some APIs return an invalid, empty string as a
             // date-time property. DateTime::__construct() will return
             // the current time for empty input which is probably not
             // what is meant. The invalid empty string is probably to
@@ -277,14 +276,6 @@ class ObjectSerializer
             }
             return $data;
         } else {
-            // If a discriminator is defined and points to a valid subclass, use it.
-            $discriminator = $class::DISCRIMINATOR;
-            if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Amazon\ProductAdvertisingAPI\v1\Model\\' . $data->{$discriminator};
-                if (is_subclass_of($subclass, $class)) {
-                    $class = $subclass;
-                }
-            }
             $instance = new $class();
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];

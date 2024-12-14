@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * Item Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class Item implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -214,17 +212,17 @@ class Item implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
-        $this->container['browseNodeInfo'] = isset($data['browseNodeInfo']) ? $data['browseNodeInfo'] : null;
-        $this->container['customerReviews'] = isset($data['customerReviews']) ? $data['customerReviews'] : null;
-        $this->container['detailPageURL'] = isset($data['detailPageURL']) ? $data['detailPageURL'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['itemInfo'] = isset($data['itemInfo']) ? $data['itemInfo'] : null;
-        $this->container['offers'] = isset($data['offers']) ? $data['offers'] : null;
-        $this->container['parentASIN'] = isset($data['parentASIN']) ? $data['parentASIN'] : null;
-        $this->container['rentalOffers'] = isset($data['rentalOffers']) ? $data['rentalOffers'] : null;
-        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
-        $this->container['variationAttributes'] = isset($data['variationAttributes']) ? $data['variationAttributes'] : null;
+        $this->container['aSIN'] = $data['aSIN'] ?? null;
+        $this->container['browseNodeInfo'] = $data['browseNodeInfo'] ?? null;
+        $this->container['customerReviews'] = $data['customerReviews'] ?? null;
+        $this->container['detailPageURL'] = $data['detailPageURL'] ?? null;
+        $this->container['images'] = $data['images'] ?? null;
+        $this->container['itemInfo'] = $data['itemInfo'] ?? null;
+        $this->container['offers'] = $data['offers'] ?? null;
+        $this->container['parentASIN'] = $data['parentASIN'] ?? null;
+        $this->container['rentalOffers'] = $data['rentalOffers'] ?? null;
+        $this->container['score'] = $data['score'] ?? null;
+        $this->container['variationAttributes'] = $data['variationAttributes'] ?? null;
     }
 
     /**
@@ -521,7 +519,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -533,9 +531,9 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -546,7 +544,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -562,7 +560,7 @@ class Item implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

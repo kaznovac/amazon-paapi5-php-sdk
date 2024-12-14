@@ -17,8 +17,6 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1;
 
-use \Exception;
-
 /**
  * ApiException Class Doc Comment
  *

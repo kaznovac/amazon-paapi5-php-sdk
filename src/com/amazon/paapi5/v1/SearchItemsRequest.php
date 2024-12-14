@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * SearchItemsRequest Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class SearchItemsRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -294,33 +292,33 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['actor'] = isset($data['actor']) ? $data['actor'] : null;
-        $this->container['artist'] = isset($data['artist']) ? $data['artist'] : null;
-        $this->container['author'] = isset($data['author']) ? $data['author'] : null;
-        $this->container['availability'] = isset($data['availability']) ? $data['availability'] : null;
-        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
-        $this->container['browseNodeId'] = isset($data['browseNodeId']) ? $data['browseNodeId'] : null;
-        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
-        $this->container['currencyOfPreference'] = isset($data['currencyOfPreference']) ? $data['currencyOfPreference'] : null;
-        $this->container['deliveryFlags'] = isset($data['deliveryFlags']) ? $data['deliveryFlags'] : null;
-        $this->container['itemCount'] = isset($data['itemCount']) ? $data['itemCount'] : null;
-        $this->container['itemPage'] = isset($data['itemPage']) ? $data['itemPage'] : null;
-        $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
-        $this->container['languagesOfPreference'] = isset($data['languagesOfPreference']) ? $data['languagesOfPreference'] : null;
-        $this->container['marketplace'] = isset($data['marketplace']) ? $data['marketplace'] : null;
-        $this->container['maxPrice'] = isset($data['maxPrice']) ? $data['maxPrice'] : null;
-        $this->container['merchant'] = isset($data['merchant']) ? $data['merchant'] : null;
-        $this->container['minPrice'] = isset($data['minPrice']) ? $data['minPrice'] : null;
-        $this->container['minReviewsRating'] = isset($data['minReviewsRating']) ? $data['minReviewsRating'] : null;
-        $this->container['minSavingPercent'] = isset($data['minSavingPercent']) ? $data['minSavingPercent'] : null;
-        $this->container['offerCount'] = isset($data['offerCount']) ? $data['offerCount'] : null;
-        $this->container['partnerTag'] = isset($data['partnerTag']) ? $data['partnerTag'] : null;
-        $this->container['partnerType'] = isset($data['partnerType']) ? $data['partnerType'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['searchIndex'] = isset($data['searchIndex']) ? $data['searchIndex'] : null;
-        $this->container['sortBy'] = isset($data['sortBy']) ? $data['sortBy'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['actor'] = $data['actor'] ?? null;
+        $this->container['artist'] = $data['artist'] ?? null;
+        $this->container['author'] = $data['author'] ?? null;
+        $this->container['availability'] = $data['availability'] ?? null;
+        $this->container['brand'] = $data['brand'] ?? null;
+        $this->container['browseNodeId'] = $data['browseNodeId'] ?? null;
+        $this->container['condition'] = $data['condition'] ?? null;
+        $this->container['currencyOfPreference'] = $data['currencyOfPreference'] ?? null;
+        $this->container['deliveryFlags'] = $data['deliveryFlags'] ?? null;
+        $this->container['itemCount'] = $data['itemCount'] ?? null;
+        $this->container['itemPage'] = $data['itemPage'] ?? null;
+        $this->container['keywords'] = $data['keywords'] ?? null;
+        $this->container['languagesOfPreference'] = $data['languagesOfPreference'] ?? null;
+        $this->container['marketplace'] = $data['marketplace'] ?? null;
+        $this->container['maxPrice'] = $data['maxPrice'] ?? null;
+        $this->container['merchant'] = $data['merchant'] ?? null;
+        $this->container['minPrice'] = $data['minPrice'] ?? null;
+        $this->container['minReviewsRating'] = $data['minReviewsRating'] ?? null;
+        $this->container['minSavingPercent'] = $data['minSavingPercent'] ?? null;
+        $this->container['offerCount'] = $data['offerCount'] ?? null;
+        $this->container['partnerTag'] = $data['partnerTag'] ?? null;
+        $this->container['partnerType'] = $data['partnerType'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
+        $this->container['resources'] = $data['resources'] ?? null;
+        $this->container['searchIndex'] = $data['searchIndex'] ?? null;
+        $this->container['sortBy'] = $data['sortBy'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
     }
 
     /**
@@ -428,7 +426,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets availability
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Availability
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Availability::*
      */
     public function getAvailability()
     {
@@ -438,7 +436,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets availability
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Availability $availability availability
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Availability::* $availability availability
      *
      * @return $this
      */
@@ -500,7 +498,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets condition
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::*
      */
     public function getCondition()
     {
@@ -510,7 +508,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets condition
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition $condition condition
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Condition::* $condition condition
      *
      * @return $this
      */
@@ -548,7 +546,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets deliveryFlags
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\DeliveryFlag[]
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\DeliveryFlag::*[]
      */
     public function getDeliveryFlags()
     {
@@ -558,7 +556,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets deliveryFlags
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\DeliveryFlag[] $deliveryFlags deliveryFlags
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\DeliveryFlag::*[] $deliveryFlags deliveryFlags
      *
      * @return $this
      */
@@ -716,7 +714,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets merchant
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::*
      */
     public function getMerchant()
     {
@@ -726,7 +724,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets merchant
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant $merchant merchant
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\Merchant::* $merchant merchant
      *
      * @return $this
      */
@@ -860,7 +858,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets partnerType
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::*
      */
     public function getPartnerType()
     {
@@ -870,7 +868,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets partnerType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType $partnerType partnerType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PartnerType::* $partnerType partnerType
      *
      * @return $this
      */
@@ -908,7 +906,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets resources
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource[]
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource::*[]
      */
     public function getResources()
     {
@@ -918,7 +916,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets resources
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource[] $resources resources
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsResource::*[] $resources resources
      *
      * @return $this
      */
@@ -956,7 +954,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets sortBy
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SortBy
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SortBy::*
      */
     public function getSortBy()
     {
@@ -966,7 +964,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sortBy
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SortBy $sortBy sortBy
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SortBy::* $sortBy sortBy
      *
      * @return $this
      */
@@ -1007,7 +1005,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -1019,9 +1017,9 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -1032,7 +1030,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -1048,7 +1046,7 @@ class SearchItemsRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

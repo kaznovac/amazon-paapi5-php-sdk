@@ -20,7 +20,9 @@ namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Utils;
 use GuzzleHttp\RequestOptions;
 use Amazon\ProductAdvertisingAPI\v1\ApiException;
 use Amazon\ProductAdvertisingAPI\v1\Configuration;
@@ -55,7 +57,7 @@ class DefaultApi
     /**
      * @param ClientInterface $client
      * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @param HeaderSelector|null  $selector
      */
     public function __construct(
         ClientInterface $client,
@@ -86,7 +88,7 @@ class DefaultApi
      */
     public function getBrowseNodes($getBrowseNodesRequest)
     {
-        list($response) = $this->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
+        [$response] = $this->getBrowseNodesWithHttpInfo($getBrowseNodesRequest);
         return $response;
     }
 
@@ -152,37 +154,9 @@ class DefaultApi
             $responseBody = json_decode($e->getResponseBody());
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $responseBody,
@@ -268,7 +242,7 @@ class DefaultApi
                     );
                     $data = ObjectSerializer::deserialize(
                         json_decode($apiException->getResponseBody()),
-                        'Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
+                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
                         $apiException->getResponseHeaders()
                     );
                     $apiException->setResponseObject($data);
@@ -341,7 +315,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -356,11 +330,11 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -378,7 +352,7 @@ class DefaultApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -398,7 +372,7 @@ class DefaultApi
      */
     public function getItems($getItemsRequest)
     {
-        list($response) = $this->getItemsWithHttpInfo($getItemsRequest);
+        [$response] = $this->getItemsWithHttpInfo($getItemsRequest);
         return $response;
     }
 
@@ -464,37 +438,9 @@ class DefaultApi
             $responseBody = json_decode($e->getResponseBody());
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $responseBody,
@@ -580,7 +526,7 @@ class DefaultApi
                     );
                     $data = ObjectSerializer::deserialize(
                         json_decode($apiException->getResponseBody()),
-                        'Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
+                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
                         $apiException->getResponseHeaders()
                     );
                     $apiException->setResponseObject($data);
@@ -653,7 +599,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -668,11 +614,11 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -690,7 +636,7 @@ class DefaultApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -710,7 +656,7 @@ class DefaultApi
      */
     public function getVariations($getVariationsRequest)
     {
-        list($response) = $this->getVariationsWithHttpInfo($getVariationsRequest);
+        [$response] = $this->getVariationsWithHttpInfo($getVariationsRequest);
         return $response;
     }
 
@@ -776,37 +722,9 @@ class DefaultApi
             $responseBody = json_decode($e->getResponseBody());
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $responseBody,
@@ -892,7 +810,7 @@ class DefaultApi
                     );
                     $data = ObjectSerializer::deserialize(
                         json_decode($apiException->getResponseBody()),
-                        'Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
+                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
                         $apiException->getResponseHeaders()
                     );
                     $apiException->setResponseObject($data);
@@ -965,7 +883,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -980,11 +898,11 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1002,7 +920,7 @@ class DefaultApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1022,7 +940,7 @@ class DefaultApi
      */
     public function searchItems($searchItemsRequest)
     {
-        list($response) = $this->searchItemsWithHttpInfo($searchItemsRequest);
+        [$response] = $this->searchItemsWithHttpInfo($searchItemsRequest);
         return $response;
     }
 
@@ -1088,37 +1006,9 @@ class DefaultApi
             $responseBody = json_decode($e->getResponseBody());
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $responseBody,
-                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $responseBody,
@@ -1204,7 +1094,7 @@ class DefaultApi
                     );
                     $data = ObjectSerializer::deserialize(
                         json_decode($apiException->getResponseBody()),
-                        'Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
+                        '\Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\ProductAdvertisingAPIClientException',
                         $apiException->getResponseHeaders()
                     );
                     $apiException->setResponseObject($data);
@@ -1277,7 +1167,7 @@ class DefaultApi
             $httpBody = $_tempBody;
             // \stdClass has no __toString(), so we should encode it manually
             if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
+                $httpBody = Utils::jsonEncode($httpBody);
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1292,11 +1182,11 @@ class DefaultApi
                 $httpBody = new MultipartStream($multipartContents);
 
             } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
+                $httpBody = Utils::jsonEncode($formParams);
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1314,7 +1204,7 @@ class DefaultApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

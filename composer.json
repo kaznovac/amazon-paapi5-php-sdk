@@ -1,6 +1,7 @@
 {
-    "name": "amzn/paapi5-php-sdk",
-    "version": "1.1.0",
+    "name": "kaznovac/amazon-paapi5-php-sdk",
+    "version": "2.1.0",
+    "type": "library",
     "description": "ProductAdvertisingAPI 5.0 PHP SDK",
     "keywords": [
         "amazon",
@@ -21,25 +22,29 @@
         {
             "name" : "Product Advertising API Team",
             "homepage": "https://webservices.amazon.com/paapi5/documentation/index.html"
+        },
+        {
+            "name" : "Marko Kaznovac",
+            "homepage": "https://kaznovac.com"
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": ">=7.2",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
-        "squizlabs/php_codesniffer": "~2.6",
-        "friendsofphp/php-cs-fixer": "~2.12"
+        "phpunit/phpunit": "^9.6",
+        "squizlabs/php_codesniffer": "^3.11",
+        "friendsofphp/php-cs-fixer": "^3.4"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
-        "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
-        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --allow-risky=yes --using-cache=no --config=.php_cs SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php"
+        "phpcs": "vendor/bin/phpcs -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
+        "phpcbf": "vendor/bin/phpcbf -n SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php",
+        "php-cs-fixer": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix SampleGetItemsApi.php SampleSearchItemsApi.php SampleGetVariationsApi.php SampleGetBrowseNodesApi.php src/com/amazon/paapi5/v1/auth/SignHelper.php"
     },
     "autoload": {
         "psr-4": { "Amazon\\ProductAdvertisingAPI\\v1\\" : "src/" }

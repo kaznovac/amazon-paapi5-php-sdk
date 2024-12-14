@@ -17,12 +17,13 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1;
 
-use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\API\DefaultApi;
+use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\api\DefaultApi;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetBrowseNodesRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetItemsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\GetVariationsRequest;
 use Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\SearchItemsRequest;
 use GuzzleHttp;
+use PHPUnit\Framework\TestCase;
 
 /**
  * DefaultApiTest Class Doc Comment
@@ -31,7 +32,7 @@ use GuzzleHttp;
  * @package  Amazon\ProductAdvertisingAPI\v1
  * @author   Product Advertising API team
  */
-class DefaultApiTest extends \PHPUnit_Framework_TestCase
+class DefaultApiTest extends TestCase
 {
     const DUMMY_ACCESS_KEY = 'DUMMY_ACCESS_KEY';
     const DUMMY_SECRET_KEY = 'DUMMY_SECRET_KEY';
@@ -43,28 +44,28 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Setup before running any test cases
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
     }
 
     /**
      * Setup before running each test case
      */
-    public function setUp()
+    public function setUp(): void
     {
     }
 
     /**
      * Clean up after running each test case
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
     /**
      * Clean up after running all test cases
      */
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
     }
 

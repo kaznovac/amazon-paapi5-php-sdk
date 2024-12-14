@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * OfferPrice Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class OfferPrice implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -194,13 +192,13 @@ class OfferPrice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['displayAmount'] = isset($data['displayAmount']) ? $data['displayAmount'] : null;
-        $this->container['pricePerUnit'] = isset($data['pricePerUnit']) ? $data['pricePerUnit'] : null;
-        $this->container['priceType'] = isset($data['priceType']) ? $data['priceType'] : null;
-        $this->container['priceTypeLabel'] = isset($data['priceTypeLabel']) ? $data['priceTypeLabel'] : null;
-        $this->container['savings'] = isset($data['savings']) ? $data['savings'] : null;
+        $this->container['amount'] = $data['amount'] ?? null;
+        $this->container['currency'] = $data['currency'] ?? null;
+        $this->container['displayAmount'] = $data['displayAmount'] ?? null;
+        $this->container['pricePerUnit'] = $data['pricePerUnit'] ?? null;
+        $this->container['priceType'] = $data['priceType'] ?? null;
+        $this->container['priceTypeLabel'] = $data['priceTypeLabel'] ?? null;
+        $this->container['savings'] = $data['savings'] ?? null;
     }
 
     /**
@@ -326,7 +324,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
     /**
      * Gets priceType
      *
-     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType
+     * @return \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType::*
      */
     public function getPriceType()
     {
@@ -336,7 +334,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
     /**
      * Sets priceType
      *
-     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType $priceType priceType
+     * @param \Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1\PriceType::* $priceType priceType
      *
      * @return $this
      */
@@ -415,7 +413,7 @@ class OfferPrice implements ModelInterface, ArrayAccess
      */
     public function offsetGet($offset) : mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

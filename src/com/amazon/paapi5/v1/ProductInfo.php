@@ -17,8 +17,8 @@
 
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
-use \ArrayAccess;
-use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
+use ArrayAccess;
+use Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
  * ProductInfo Class Doc Comment
@@ -29,8 +29,6 @@ use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
  */
 class ProductInfo implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -189,12 +187,12 @@ class ProductInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['color'] = isset($data['color']) ? $data['color'] : null;
-        $this->container['isAdultProduct'] = isset($data['isAdultProduct']) ? $data['isAdultProduct'] : null;
-        $this->container['itemDimensions'] = isset($data['itemDimensions']) ? $data['itemDimensions'] : null;
-        $this->container['releaseDate'] = isset($data['releaseDate']) ? $data['releaseDate'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['unitCount'] = isset($data['unitCount']) ? $data['unitCount'] : null;
+        $this->container['color'] = $data['color'] ?? null;
+        $this->container['isAdultProduct'] = $data['isAdultProduct'] ?? null;
+        $this->container['itemDimensions'] = $data['itemDimensions'] ?? null;
+        $this->container['releaseDate'] = $data['releaseDate'] ?? null;
+        $this->container['size'] = $data['size'] ?? null;
+        $this->container['unitCount'] = $data['unitCount'] ?? null;
     }
 
     /**
@@ -371,7 +369,7 @@ class ProductInfo implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -383,9 +381,9 @@ class ProductInfo implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -396,7 +394,7 @@ class ProductInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -412,7 +410,7 @@ class ProductInfo implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

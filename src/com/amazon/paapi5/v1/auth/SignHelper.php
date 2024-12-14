@@ -44,14 +44,13 @@ class SignHelper
     private $currentDate = null;
 
     /**
-     * @param object $config
+     * @param \Amazon\ProductAdvertisingAPI\v1\Configuration $config
      * @param string $payload
      * @param string $resourcePath
-     * @param string operation
+     * @param string $operation
      */
     public function __construct($config, $payload, $resourcePath, $operation)
     {
-        $this->config = $config;
         $this->payload = $payload;
         $this->resourcePath = $resourcePath;
         $this->operation = $operation;
@@ -169,7 +168,7 @@ class SignHelper
 
     /**
      * Build string for Authorization header.
-     * @param string strSignature
+     * @param string $strSignature
      * @return string authorization string
      */
     private function buildAuthorizationString($strSignature)
@@ -179,7 +178,7 @@ class SignHelper
 
     /**
      * Generate Hex code of String.
-     * @param string data
+     * @param string $data
      * @return string hex code
      */
     private function generateHex($data)
@@ -189,10 +188,10 @@ class SignHelper
 
     /**
      * Function to generate AWS signature key.
-     * @param string key
-     * @param string date
-     * @param string region
-     * @param string service
+     * @param string $key
+     * @param string $date
+     * @param string $region
+     * @param string $service
      * @return string signature key
      * @reference - http://docs.aws.amazon.com/general/latest/gr/signature-v4-examples.html#signature-v4-examples-java
      */
@@ -218,7 +217,7 @@ class SignHelper
 
     /**
      * Get date. yyyyMMdd
-     * @return object GMT date
+     * @return string GMT date
      */
     private function getDate()
     {
